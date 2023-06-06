@@ -8,7 +8,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public String generateUserEmail(String firstName, String lastName, String departmentName) {
-		return firstName + lastName + "@" + departmentName +".gl.com";
+		return firstName + lastName + "@" + departmentName + ".gl.com";
 	}
 
 	@Override
@@ -16,16 +16,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 		String caps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		String lower = "abcdefghijklmnopqrstuvwxyz";
 		String nums = "0123456789";
-		String splchar = "!@#$%^&*()"; 
+		String splchar = "!@#$%^&*()";
 		String combined = caps + lower + nums + splchar;
 		System.out.println(combined.length()); // 72
 		String genPass = "";
 		Random random = new Random();
-		
-		for(int i=1;i<=8; i++) {
-			
-			genPass += String.valueOf(combined.charAt(random.nextInt(combined.length()))); 
-			
+
+		for (int i = 1; i <= 8; i++) {
+
+			genPass += String.valueOf(combined.charAt(random.nextInt(combined.length())));
+
 		}
 		return genPass;
 	}
@@ -36,8 +36,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		System.out.println("Employee lastName is : " + e1.getLastName());
 		System.out.println("Employee Email Id is : " + e1.getUserEmail());
 		System.out.println("Employee Password is : " + e1.getPassword());
-		
+
 	}
 
-	
 }
