@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 import com.greatlearning.model.Employee;
 import com.greatlearning.service.EmployeeServiceImpl;
 
-public class Driverapp {
+public class EmailDriver {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
