@@ -15,12 +15,12 @@ public class EmailDriver {
 		String fName = sc.next();
 		System.out.println("Enter your Last Name");
 		String lName = sc.next();
-		
+
 		Employee emp = new Employee();
 		emp.setFirstName(fName);
 		emp.setLastName(lName);
 		EmployeeServiceImpl esi = new EmployeeServiceImpl();
-		
+
 		System.out.println("1.Technical");
 		System.out.println("2.Admin");
 		System.out.println("3.HR");
@@ -29,19 +29,23 @@ public class EmailDriver {
 		int choice = sc.nextInt();
 		String gEmail = "";
 		String gPassword = "";
-		switch(choice)
-		{
-		case 1 : gEmail = esi.generateUserEmail(emp.getFirstName().toLowerCase(), emp.getLastName().toLowerCase(), "tech");
-				break;
-		case 2 : gEmail = esi.generateUserEmail(emp.getFirstName().toLowerCase(), emp.getLastName().toLowerCase(), "admin");
+		switch (choice) {
+		case 1:
+			gEmail = esi.generateUserEmail(emp.getFirstName().toLowerCase(), emp.getLastName().toLowerCase(), "tech");
 			break;
-		case 3 : gEmail = esi.generateUserEmail(emp.getFirstName().toLowerCase(), emp.getLastName().toLowerCase(), "hr");
+		case 2:
+			gEmail = esi.generateUserEmail(emp.getFirstName().toLowerCase(), emp.getLastName().toLowerCase(), "admin");
 			break;
-		case 4 : gEmail = esi.generateUserEmail(emp.getFirstName().toLowerCase(), emp.getLastName().toLowerCase(), "legal");
+		case 3:
+			gEmail = esi.generateUserEmail(emp.getFirstName().toLowerCase(), emp.getLastName().toLowerCase(), "hr");
 			break;
-		default: System.out.println("Please enter valid input");
+		case 4:
+			gEmail = esi.generateUserEmail(emp.getFirstName().toLowerCase(), emp.getLastName().toLowerCase(), "legal");
+			break;
+		default:
+			System.out.println("Please enter valid input");
 		}
-		
+
 		gPassword = esi.generateUserPassword();
 		emp.setUserEmail(gEmail);
 		emp.setPassword(gPassword);
@@ -49,12 +53,10 @@ public class EmailDriver {
 		String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)" + "(?=.*[-+_!@#$%^&*., ?]).+$";
 
 		Pattern p = Pattern.compile(regex);
-		 Matcher m = p.matcher(gPassword);
-		 if (m.matches())
-		            System.out.println("Valid Password");
-		        else
-		            System.out.println("inValid Password");
+		Matcher m = p.matcher(gPassword);
+		if (m.matches())
+			System.out.println("Valid Password");
+		else
+			System.out.println("inValid Password");
 	}
 }
-
-
